@@ -1,0 +1,27 @@
+﻿<html>
+ <head>
+
+ <title> Дамп базы данных </title>
+ <link rel="stylesheet" href="style.css">
+ {% import "macros.html" as macros %}
+ </head>
+<body>
+<div class="tables">
+<div class="table">
+ {{ macros.render_table(table_1, relation_1, len) }}
+</div>
+<div class="table">
+ {{ macros.render_table(table_2, relation_2, len) }}
+</div>
+<div class="table">
+ {{ macros.render_table(table_3, relation_3, len) }}
+</div>
+<div class="table">
+ {{ macros.render_table(table_4, relation_4, len) }}
+</div>
+<div class="table">
+ {{ macros.render_table(table_5, relation_5, len) }}
+</div>
+</div>
+</body>
+</html>

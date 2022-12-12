@@ -1,0 +1,45 @@
+.card {
+  float: left;
+  margin: 1em;
+  padding: 3em;
+  width: 20em;
+  height: 10em;
+  background-color: azure;
+  box-shadow: 1ex 1ex 1ex grey;
+  padding: 1ex;
+  border-radius: 5%;
+}
+
+.card div {
+  padding: 2px;
+}
+
+.side-bar {
+  float: left;
+  width: 15%;
+  background-color: azure;
+  box-shadow: 1ex 1ex 1ex grey;
+  padding: 1ex;
+}
+
+.list {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.btn {
+  margin: 1ex;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}

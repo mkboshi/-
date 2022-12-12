@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <title>Карточка читателя</title>
+    <link rel="stylesheet" href="style.css" />
+    {% macro render_book(relation) %}
+    <div class="card"></div>
+    {% endmacro %}
+  </head>
+  <body>
+    <div class="side-bar">
+      <fieldset>
+        <legend>Жанр</legend>
+        <div class="list">
+          {% set n = len(genre) %} {% for i in range(n) %} {% set j =
+          genre.loc[i, "genre_name"] %} {% set k = genre.loc[i, "cnt"] %}
+          <div>
+            {% if i in genre_ids %}
+            <input
+              type="checkbox"
+              id="{{j}}"
+              name="{{j}}"
+              value="{{j}}"
+              checked
+            />
+            {% else %}
+            <input type="checkbox" id="{{j}}" name="{{j}}" value="{{j}}" />
+            {% endif %}
+            <label for="{{j}}">{{j}} ({{k}})</label>
+          </div>
+          {% endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Автор</legend>
+        <div class="list">
+          {% set n = len(author) %} {% for i in range(n) %} {% set j =
+          author.loc[i, "author_name"] %} {% set k = author.loc[i, "cnt"] %}
+          <div>
+            {% if i in author_ids %}
+            <input
+              type="checkbox"
+              id="{{j}}"
+              name="{{j}}"
+              value="{{j}}"
+              checked
+            />
+            {% else %}
+            <input type="checkbox" id="{{j}}" name="{{j}}" value="{{j}}" />
+            {% endif %}
+            <label for="{{j}}">{{j}} ({{k}})</label>
+          </div>
+          {% endfor %}
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Издательство</legend>
+        <div class="list">
+          {% set n = len(publisher) %} {% for i in range(n) %} {% set j =
+          publisher.loc[i, "publisher_name"] %} {% set k = publisher.loc[i,
+          "cnt"] %}
+          <div>
+            {% if i in publisher_ids %}
+            <input
+              type="checkbox"
+              id="{{j}}"
+              name="{{j}}"
+              value="{{j}}"
+              checked
+            />
+            {% else %}
+            <input type="checkbox" id="{{j}}" name="{{j}}" value="{{j}}" />
+            {% endif %}
+            <label for="{{j}}">{{j}} ({{k}})</label>
+          </div>
+          {% endfor %}
+        </div>
+      </fieldset>
+      <div class="btn">
+        <input type="submit" value="Найти" />
+        <input type="submit" value="Отчистить" />
+      </div>
+    </div>
+    <div class="wrapper">
+      {% set n = len(book) %} {% for i in range(n) %} {% set title =
+      book.loc[i,"Название"] %} {% set author = book.loc[i, "Авторы"] %} {% set
+      genre = book.loc[i, "Жанр"] %} {% set publisher = book.loc[i,
+      "Издательство"] %} {% set year = book.loc[i, "Год_издания"] %} {% set cnt
+      = book.loc[i, "Количество"] %}
+      <div class="card list">
+        <div>Название: <b>{{title}}</b></div>
+        <div>Авторы: <b>{{author}}</b></div>
+        <div>Жанр: <b>{{genre}}</b></div>
+        <div>Издательство: <b>{{publisher}}</b></div>
+        <div>Год_издания: <b>{{year}}</b></div>
+        <div>Количество: <b>{{cnt}}</b></div>
+        <input type="submit" value="Выбрать" />
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
