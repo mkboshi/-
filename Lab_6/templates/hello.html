@@ -1,0 +1,51 @@
+﻿<!DOCTYPE HTML>
+<html>
+ <head>
+ <title> Приветствие </title>
+ </head>
+<body>
+ {% if name == "" %}
+ Введите имя, пожалуйста!
+ {% else %}
+ <p>
+ Привет,
+ {% if gender == "m" %}
+ студент
+ {% elif gender == "w" %}
+ студентка
+ {% endif %}
+ {{name}}!
+ </p>
+ <p>
+ Ваша образовательная программа: {{program}}.
+ </p>
+ <p>
+ {% if len(subjects_select) == 0 %}
+ Вы не изучаете никаких дисциплин
+ {% else %}
+ Вы изучаете дисциплины:
+ {% for sub in range(len(subjects_select)) %}
+ {% if sub == (len(subjects_select) - 1) %} 
+ <a href={{ url_for('subject', sub=subjects_select[sub]) }}> {{subjects_select[sub]}}</a>.
+ {% else %}
+ <a href={{ url_for('subject', sub=subjects_select[sub]) }}> {{subjects_select[sub]}}</a>,
+ {% endif %}
+ {% endfor %}
+ </p>
+ <p>
+ {% if len(olimp_select) == 0 %}
+ Вы не учавствовали в олимпиадах
+ {% else %}
+ Ваши олимпиады:
+ {% for ol in range(len(olimp_select)) %}
+ {% if ol == (len(olimp_select) - 1) %}
+ <a href={{ url_for('olimp', ol=olimp_select[ol]) }}> {{olimp_select[ol]}}</a>.
+ {% else %}
+ <a href={{ url_for('olimp', ol=olimp_select[ol]) }}> {{olimp_select[ol]}}</a>,
+ {% endif %}
+ {% endfor %}
+ </p>
+ {% endif %}
+ {% endif %}
+ {% endif %}
+</body>
